@@ -1,0 +1,6 @@
+build
+coverage
+node_modules
+.circleci
+__snapshots__
+src/graphql.types.ts

@@ -1,0 +1,38 @@
+{
+  "name": "talk-graphql-resolvers",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "apollo-server-core": "^3.10.0",
+    "apollo-server-express": "^3.10.0",
+    "express": "^4.18.1",
+    "graphql": "^16.5.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "2.11.3",
+    "@graphql-codegen/typescript": "2.7.2",
+    "@graphql-codegen/typescript-document-nodes": "2.3.2",
+    "@graphql-codegen/typescript-resolvers": "2.7.2",
+    "@graphql-tools/load-files": "^6.6.1",
+    "@graphql-tools/merge": "^8.3.12",
+    "@types/jest": "^28.1.6",
+    "jest": "^28.1.3",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
+    "ts-jest": "^28.0.7",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "dev": "run-p gen:schema:watch gen:graphql:watch dev:server",
+    "dev:server": "tsnd -r tsconfig-paths/register src/index.ts",
+    "dev:graphql": "run-p gen:schema:watch gen:graphql:watch",
+    "gen:schema": "ts-node scripts/generate-schema.ts",
+    "gen:schema:watch": "tsnd --respawn scripts/generate-schema.ts",
+    "gen:graphql": " graphql-codegen --config graphql.config.yml",
+    "gen:graphql:watch": "yarn gen:graphql --watch",
+    "test": "jest"
+  }
+}

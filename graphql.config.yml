@@ -1,0 +1,15 @@
+schema: './schema.graphql'
+extensions:
+  codegen:
+    overwrite: true
+    documents: null
+    generates:
+      src/graphql.types.ts:
+        config:
+          skipTypename: true
+          contextType: ./api/context#Context
+          maybeValue: T | undefined
+        plugins:
+          - 'typescript'
+          - 'typescript-resolvers'
+          - 'typescript-document-nodes'
