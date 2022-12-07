@@ -4,6 +4,7 @@ const schema = gql`
   type User {
     id: ID!
     name: String!
+    codeName: String!
     email: String!
     phone: String
   }

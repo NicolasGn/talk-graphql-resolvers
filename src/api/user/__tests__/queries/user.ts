@@ -8,6 +8,7 @@ const QUERY = /* GraphQL */ `
     user(userId: $userId) {
       id
       name
+      codeName
       email
       phone
     }
@@ -22,7 +23,9 @@ describe('resolvers > Query.user', () => {
   });
 
   it('should return a complete user', async () => {
-    const user = getUserFixture();
+    const user = getUserFixture({
+      name: 'Bob',
+    });
 
     getUserSpy.mockResolvedValue(user);
 
@@ -35,6 +38,7 @@ describe('resolvers > Query.user', () => {
       user: {
         id: user.id,
         name: user.name,
+        codeName: 'B.O.B',
         email: user.email,
         phone: user.phone,
       },
