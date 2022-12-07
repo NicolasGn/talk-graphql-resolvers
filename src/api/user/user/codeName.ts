@@ -1,8 +1,11 @@
-import { ApolloError } from 'apollo-server-core';
 import { UserResolvers } from 'graphql.types';
 
 const codeName: UserResolvers['codeName'] = (parent) => {
-  throw new ApolloError('Not implemented');
+  // parent.name is wrongly flagged as potentially undefined
+  return (
+    parent.name?.split(' ').pop()?.toUpperCase().split('').join('.') ??
+    'N.O.N.E'
+  );
 };
 
 export default codeName;
