@@ -9,6 +9,7 @@ extensions:
           skipTypename: true
           contextType: ./api/context#Context
           maybeValue: T | undefined
+          defaultMapper: 'Partial<{T}>'
         plugins:
           - 'typescript'
           - 'typescript-resolvers'
