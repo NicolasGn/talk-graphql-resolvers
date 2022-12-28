@@ -10,6 +10,9 @@ extensions:
           contextType: ./api/context#Context
           maybeValue: T | undefined
           defaultMapper: 'Partial<{T}>'
+          mappers:
+            User: ./services/users/model#User as UserModel
+            UserMetadata: ./services/users/model#UserMetadata as UserMetadataModel
         plugins:
           - 'typescript'
           - 'typescript-resolvers'
